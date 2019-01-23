@@ -18,7 +18,8 @@ Sometimes the best way to learn something is to copy it out line by line thinkin
 ## Sections Completed
 
 - Basics Section 1: :white_check_mark:
-- Basics Section 2: WIP
+- Basics Section 2: :white_check_mark:
+- Basics Section 3: WIP
 
 ## Note
 
