@@ -10,7 +10,7 @@ type Vertex struct {
 	X, Y float64
 }
 
-// Abs computes hypotenuse
+// Abs computes math.Sqrt(v.X*v.X + v.Y*v.Y)
 func (v Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
