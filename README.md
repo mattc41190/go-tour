@@ -19,7 +19,9 @@ Sometimes the best way to learn something is to copy it out line by line thinkin
 
 - Basics Section 1: :white_check_mark:
 - Basics Section 2: :white_check_mark:
-- Basics Section 3: WIP
+- Basics Section 3: :white_check_mark:
+
+- Methods and Interfaces Section 1: WIP
 
 ## Note
 
