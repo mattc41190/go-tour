@@ -1,5 +1,4 @@
 # go-tour
-## A Tour of Go
 
 ## What is this?
 
