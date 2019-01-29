@@ -20,13 +20,13 @@ func ScaleFunc(v *Vertex, f float64) {
 }
 
 func main() {
-	v := Vertex{3, 4}
+	v := Vertex{3, 4} // Value
 	v.Scale(2)        // v == Vertex{6,8} //  <-- Pointer is optional on methods
 	ScaleFunc(&v, 10) //v == Vertex{60,80} // <-- Pointer is required on functions
 
-	p := &Vertex{4, 3}
-	p.Scale(3)      // p == &Vertex{12, 9}
-	ScaleFunc(p, 8) // p== &Vertex{96, 72}
+	p := &Vertex{4, 3} // Pointer
+	p.Scale(3)         // p == &Vertex{12, 9}
+	ScaleFunc(p, 8)    // p== &Vertex{96, 72}
 
 	fmt.Println(v, p)
 
