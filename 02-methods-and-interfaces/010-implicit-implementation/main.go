@@ -10,7 +10,7 @@ type T struct { // Struct -- A composite type
 	S string
 }
 
-func (t T) M() { // Method with receiver
+func (t T) M() { // Method with receiver (type `T` now implements interface `I`. `T` may be used anywhere that accepts an `I`)
 	fmt.Println(t.S)
 }
 
