@@ -21,6 +21,6 @@ func Pic(dx, dy int) [][]uint8 {
 }
 
 func main() {
-	// Must be run in
+	// Must be run in go tour
 	pic.Show(Pic)
 }

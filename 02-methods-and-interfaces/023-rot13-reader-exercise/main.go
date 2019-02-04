@@ -20,31 +20,39 @@ type rot13Reader struct {
 	s io.Reader
 }
 
+func main() {
+	// "Lbh penpxrq gur pbqr!" == You cracked the code!
+	s := strings.NewReader("Uryyb Obqvr, lbh ovt ornhgvshy zhg")
+	r := rot13Reader{s}
+	io.Copy(os.Stdout, &r)
+	fmt.Println("")
+}
+
 func (rr *rot13Reader) Read(bs []byte) (int, error) {
-	n, err := rr.s.Read(bs) // bs can be read into because slices are just pointers to arrays
+	numRead, err := rr.s.Read(bs) // bs can be read into because slices are just pointers to arrays
 	if err == io.EOF {
 		return 0, err
 	}
-	for i := 0; i < n; i++ {
+	for i := 0; i < numRead; i++ {
 		bs[i] = byte(rotate(rune(bs[i])))
 	}
-	return n, err
+	return numRead, err
 }
 
 func rotate(letter rune) rune {
 	if 'A' <= letter && letter <= 'Z' {
-		shifted, err := shift(len(upper)/2, upper, letter)
+		shiftedRune, err := shiftRune(len(upper)/2, upper, letter)
 		if err != nil {
 			panic(err)
 		}
-		return shifted
+		return shiftedRune
 	}
 	if 'a' <= letter && letter <= 'z' {
-		shifted, err := shift(len(upper)/2, lower, letter)
+		shiftedRune, err := shiftRune(len(upper)/2, lower, letter)
 		if err != nil {
 			panic(err)
 		}
-		return shifted
+		return shiftedRune
 	}
 	return letter
 }
@@ -58,9 +66,9 @@ func indexOf(s []rune, r rune) (int, error) {
 	return 0, errors.New("no matching rune found")
 }
 
-func shift(places int, s []rune, r rune) (rune, error) {
-	length := len(s)
-	index, err := indexOf(s, r)
+func shiftRune(places int, source []rune, r rune) (rune, error) {
+	length := len(source)
+	index, err := indexOf(source, r)
 
 	if err != nil {
 		return 0, err
@@ -68,16 +76,8 @@ func shift(places int, s []rune, r rune) (rune, error) {
 
 	if index+places >= length {
 		overflow := index + places - length
-		return s[overflow], nil
+		return source[overflow], nil
 	}
 
-	return s[index+places], nil
-}
-
-func main() {
-	// "Lbh penpxrq gur pbqr!" == You cracked the code!
-	s := strings.NewReader("Uryyb Obqvr, lbh ovt ornhgvshy zhg")
-	r := rot13Reader{s}
-	io.Copy(os.Stdout, &r)
-	fmt.Println("")
+	return source[index+places], nil
 }

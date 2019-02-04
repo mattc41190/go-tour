@@ -20,7 +20,9 @@ Sometimes the best way to learn something is to copy it out line by line thinkin
 - Basics Section 2: :white_check_mark:
 - Basics Section 3: :white_check_mark:
 
-- Methods and Interfaces Section 1: WIP
+- Methods and Interfaces Section 1: :white_check_mark:
+
+- Concurrency: WIP
 
 ## Note
 

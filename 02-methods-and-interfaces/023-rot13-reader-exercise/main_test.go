@@ -61,7 +61,7 @@ func TestGetShiftedChar(t *testing.T) {
 
 	for _, test := range table {
 
-		shifted, err := shift(len(s)/2, s, test.i)
+		shifted, err := shiftRune(len(s)/2, s, test.i)
 
 		if err != nil {
 			t.Error(err)
